@@ -8,7 +8,7 @@ namespace Playing_with_JWT.Controllers
   [ApiController]
   public class UserController : ControllerBase
   {
-    [HttpPost, Route("login")]
+    [HttpPost("login")]
     public IActionResult Login([FromBody]LoginModel loginModel)
     {
       if (loginModel.Name == "test" && loginModel.Password == "pass")
