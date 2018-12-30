@@ -17,9 +17,9 @@ namespace Playing_with_JWT
 
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddJwtAuthentication();
-
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+      services.AddJwtAuthentication();
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)

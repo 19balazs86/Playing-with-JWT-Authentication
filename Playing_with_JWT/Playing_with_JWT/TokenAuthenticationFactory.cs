@@ -24,9 +24,10 @@ namespace Playing_with_JWT
     private static readonly SigningCredentials _signingCredential =
       new SigningCredentials(_securityKeyX509, SecurityAlgorithms.RsaSha256);
 
-    public static void AddJwtAuthentication(this IServiceCollection services)
+    public static IServiceCollection AddJwtAuthentication(this IServiceCollection services)
     {
-      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+      services
+        .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
           options.TokenValidationParameters = new TokenValidationParameters
@@ -41,19 +42,26 @@ namespace Playing_with_JWT
             IssuerSigningKey = _securityKeyX509
           };
         });
+
+      return services;
     }
 
-    public static string GenerateToken(IEnumerable<Claim> claims)
+    public static string CreateToken(IEnumerable<Claim> claims)
     {
-      JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(
-        issuer: _issuer,
-        audience: _audience,
-        claims: claims,
-        expires: DateTime.Now.AddDays(1),
-        signingCredentials: _signingCredential
-      );
+      SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+      {
+        Subject            = new ClaimsIdentity(claims),
+        Issuer             = _issuer,
+        Audience           = _audience,
+        Expires            = DateTime.Now.AddDays(1),
+        SigningCredentials = _signingCredential
+      };
 
-      return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+      SecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+
+      SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+
+      return tokenHandler.WriteToken(token);
     }
   }
 }

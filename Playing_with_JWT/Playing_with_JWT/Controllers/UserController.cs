@@ -9,13 +9,13 @@ namespace Playing_with_JWT.Controllers
   public class UserController : ControllerBase
   {
     [HttpPost("login")]
-    public IActionResult Login([FromBody]LoginModel loginModel)
+    public IActionResult Login(LoginModel loginModel)
     {
       if (loginModel.Name == "test" && loginModel.Password == "pass")
       {
-        UserModel user = new UserModel(loginModel.Name, new []{ "User" });
+        UserModel user = new UserModel(1, loginModel.Name, new []{ "User" });
 
-        return Ok(new { Token = TokenAuthenticationFactory.GenerateToken(user.ToClaims()) });
+        return Ok(new { Token = TokenAuthenticationFactory.CreateToken(user.ToClaims()) });
       }
 
       return Unauthorized();
@@ -23,11 +23,11 @@ namespace Playing_with_JWT.Controllers
 
     [Authorize]
     [HttpGet]
-    public ActionResult<UserModel> Get()
+    public UserModel Get()
     {
       UserModel user = new UserModel(User.Claims);
 
-      return Ok(user);
+      return user;
     }
   }
 }
