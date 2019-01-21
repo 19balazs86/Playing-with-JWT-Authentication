@@ -24,24 +24,23 @@ namespace Playing_with_JWT
     private static readonly SigningCredentials _signingCredential =
       new SigningCredentials(_securityKeyX509, SecurityAlgorithms.RsaSha256);
 
+    private static readonly TokenValidationParameters _tokenValidationParameters = new TokenValidationParameters
+    {
+      ValidateIssuer           = true,
+      ValidateAudience         = true,
+      ValidateLifetime         = true,
+      ValidateIssuerSigningKey = true,
+
+      ValidIssuer      = _issuer,
+      ValidAudience    = _audience,
+      IssuerSigningKey = _securityKeyX509
+    };
+
     public static IServiceCollection AddJwtAuthentication(this IServiceCollection services)
     {
       services
         .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-          options.TokenValidationParameters = new TokenValidationParameters
-          {
-            ValidateIssuer           = true,
-            ValidateAudience         = true,
-            ValidateLifetime         = true,
-            ValidateIssuerSigningKey = true,
-
-            ValidIssuer      = _issuer,
-            ValidAudience    = _audience,
-            IssuerSigningKey = _securityKeyX509
-          };
-        });
+        .AddJwtBearer(options => options.TokenValidationParameters = _tokenValidationParameters);
 
       return services;
     }
@@ -62,6 +61,24 @@ namespace Playing_with_JWT
       SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
 
       return tokenHandler.WriteToken(token);
+    }
+
+    public static bool TryValidateToken(string token, out ClaimsPrincipal claimsPrincipal)
+    {
+      SecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+
+      try
+      {
+        claimsPrincipal = tokenHandler.ValidateToken(token, _tokenValidationParameters, out var securityToken);
+
+        return true;
+      }
+      catch (Exception) // The exception can be: ArgumentException, SecurityTokenValidationException
+      {
+        claimsPrincipal = null;
+
+        return false;
+      }
     }
   }
 }

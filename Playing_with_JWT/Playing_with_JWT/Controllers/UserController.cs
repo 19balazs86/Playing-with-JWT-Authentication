@@ -21,6 +21,19 @@ namespace Playing_with_JWT.Controllers
       return Unauthorized();
     }
 
+    [HttpPost("validate-token")]
+    public ActionResult<UserModel> ValidateToken(ValidateTokenRequest validateTokenRequest)
+    {
+      if (TokenAuthenticationFactory.TryValidateToken(validateTokenRequest.Token, out var claimsPrincipal))
+      {
+        UserModel user = new UserModel(claimsPrincipal.Claims);
+
+        return Ok(user);
+      }
+
+      return BadRequest();
+    }
+
     [Authorize]
     [HttpGet]
     public UserModel Get()
