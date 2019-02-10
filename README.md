@@ -7,8 +7,9 @@ This small application is an example to **set-up the built-in JWT authentication
 
 #### Difference between AddMvc and AddMvcCore
 - In the Startup file ConfigureServices: the default AddMvc extension method is replaced by **AddMvcCore**. You can save some resources by skipping include the razor functionality (usually, you do not use that in WebAPI).
-- [Difference between AddMvc and AddMvcCore](https://offering.solutions/blog/articles/2017/02/07/difference-between-addmvc-addmvcore "Difference between AddMvc and AddMvcCore").
-- [Replace AddMvc with AddMvcCore](https://blog.codingmilitia.com/2019/01/26/aspnet-012-from-zero-to-overkill-move-to-a-web-api "Replace AddMvc with AddMvcCore").
+- Blog: [Difference between AddMvc and AddMvcCore](https://offering.solutions/blog/articles/2017/02/07/difference-between-addmvc-addmvcore "Difference between AddMvc and AddMvcCore").
+- Blog: [Replace AddMvc with AddMvcCore](https://blog.codingmilitia.com/2019/01/26/aspnet-012-from-zero-to-overkill-move-to-a-web-api "Replace AddMvc with AddMvcCore").
+- Blog: [Reducing initial request latency by pre-building services in a startup task](https://andrewlock.net/reducing-latency-by-pre-building-singletons-in-asp-net-core "Reducing initial request latency by pre-building services in a startup task").
 
 #### Some resources
 - [JWT.io](https://jwt.io "JWT.io")
