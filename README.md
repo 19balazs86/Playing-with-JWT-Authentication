@@ -4,6 +4,7 @@ This small application is an example to **set-up the built-in JWT authentication
 - Save and retrieve the Claims from the Token.
 - Create SigningCredentials with symmetric and asymmetric security key.
 - Validate token.
+- Configure to retrieve the token from the cookie (not just from AuthHeader).
 
 #### Difference between AddMvc and AddMvcCore
 - In the Startup file ConfigureServices: the default AddMvc extension method is replaced by **AddMvcCore**. You can save some resources by skipping include the razor functionality (usually, you do not use that in WebAPI).
