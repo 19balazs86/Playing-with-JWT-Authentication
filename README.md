@@ -17,3 +17,6 @@ This small application is an example to **set-up the built-in JWT authentication
 - [JSON Web Token (JWT) explained.](https://flaviocopes.com/jwt "JSON Web Token (JWT) explained.")
 - [What is a JSON Web Token?](https://medium.com/myplanet-musings/what-is-a-json-web-token-2193f383e963 "What is a JSON Web Token?")
 - [GitHub: Jwt.Net](https://github.com/jwt-dotnet/jwt "GitHub: Jwt.Net") - Supports generating and decoding JSON Web Tokens.
+
+##### Other
+- Blog: [Protect your API with API Keys](https://josefottosson.se/asp-net-core-protect-your-api-with-api-keys/ "Protect your API with API Keys").
