@@ -19,4 +19,5 @@ This small application is an example to **set-up the built-in JWT authentication
 - [GitHub: Jwt.Net](https://github.com/jwt-dotnet/jwt "GitHub: Jwt.Net") - Supports generating and decoding JSON Web Tokens.
 
 ##### Other
-- Blog: [Protect your API with API Keys](https://josefottosson.se/asp-net-core-protect-your-api-with-api-keys/ "Protect your API with API Keys").
+- Blog: [Protect your API with API Keys](https://josefottosson.se/asp-net-core-protect-your-api-with-api-keys/ "Protect your API with API Keys") - custom Authentication and Authorization.
+- Blog: [Creating a custom authentication scheme](https://joonasw.net/view/creating-auth-scheme-in-aspnet-core-2/ "Creating a custom authentication scheme").
