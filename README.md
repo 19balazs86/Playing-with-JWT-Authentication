@@ -20,4 +20,6 @@ This small application is an example to **set-up the built-in JWT authentication
 
 ##### Other
 - Blog: [Protect your API with API Keys](https://josefottosson.se/asp-net-core-protect-your-api-with-api-keys/ "Protect your API with API Keys") - custom Authentication and Authorization.
+- Blog: [Certificate Authentication](https://damienbod.com/2019/06/13/certificate-authentication-in-asp-net-core-3-0/ "Certificate Authentication").
 - Blog: [Creating a custom authentication scheme](https://joonasw.net/view/creating-auth-scheme-in-aspnet-core-2/ "Creating a custom authentication scheme").
+- GitHub: [aspnet-contrib / AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers "aspnet-contrib / AspNet.Security.OAuth.Providers")
