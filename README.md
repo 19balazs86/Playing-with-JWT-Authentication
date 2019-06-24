@@ -4,7 +4,7 @@ This small application is an example to **set-up the built-in JWT authentication
 - Save and retrieve the Claims from the Token.
 - Create SigningCredentials with symmetric and asymmetric security key.
 - Validate token.
-- Configure to retrieve the token from the cookie (not just from AuthHeader).
+- Configure to retrieve the token from the cookie (not just from Authentication header).
 
 #### Difference between AddMvc and AddMvcCore
 - In the Startup file ConfigureServices: the default AddMvc extension method is replaced by **AddMvcCore**. You can save some resources by skipping include the razor functionality (usually, you do not use that in WebAPI).
@@ -23,3 +23,8 @@ This small application is an example to **set-up the built-in JWT authentication
 - Blog: [Certificate Authentication](https://damienbod.com/2019/06/13/certificate-authentication-in-asp-net-core-3-0/ "Certificate Authentication").
 - Blog: [Creating a custom authentication scheme](https://joonasw.net/view/creating-auth-scheme-in-aspnet-core-2/ "Creating a custom authentication scheme").
 - GitHub: [aspnet-contrib / AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers "aspnet-contrib / AspNet.Security.OAuth.Providers")
+
+##### Password hashing
+- GitHub: [BcryptNet/bcrypt.net](https://github.com/BcryptNet/bcrypt.net "BcryptNet/bcrypt.net")
+- [How to store a password](https://www.meziantou.net/how-to-store-a-password-in-a-web-application.htm "How to store a password").
+- [Cryptography in .NET](https://www.meziantou.net/cryptography-in-dotnet.htm "Cryptography in .NET").
