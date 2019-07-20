@@ -2,7 +2,7 @@
 
 namespace Playing_with_JWT.Model
 {
-  public class LoginModel
+  public class LoginRequest
   {
     [Required]
     public string Name { get; set; }

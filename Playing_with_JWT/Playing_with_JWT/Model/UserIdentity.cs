@@ -4,20 +4,20 @@ using System.Security.Claims;
 
 namespace Playing_with_JWT.Model
 {
-  public class UserModel
+  public class UserIdentity
   {
     public int Id { get; }
     public string Name { get; }
     public IEnumerable<string> Roles { get; }
 
-    public UserModel(int id, string name, IEnumerable<string> roles)
+    public UserIdentity(int id, string name, IEnumerable<string> roles)
     {
       Id    = id;
       Name  = name;
       Roles = roles;
     }
 
-    public UserModel(IEnumerable<Claim> claims)
+    public UserIdentity(IEnumerable<Claim> claims)
     {
       List<string> roles = new List<string>();
 

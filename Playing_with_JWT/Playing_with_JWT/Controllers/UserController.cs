@@ -9,11 +9,11 @@ namespace Playing_with_JWT.Controllers
   public class UserController : ControllerBase
   {
     [HttpPost("login")]
-    public IActionResult Login(LoginModel loginModel)
+    public IActionResult Login(LoginRequest loginModel)
     {
       if (loginModel.Name == "test" && loginModel.Password == "pass")
       {
-        UserModel user = new UserModel(1, loginModel.Name, new []{ "User" });
+        UserIdentity user = new UserIdentity(1, loginModel.Name, new []{ "User" });
 
         return Ok(new { Token = TokenAuthenticationFactory.CreateToken(user.ToClaims()) });
       }
@@ -21,26 +21,21 @@ namespace Playing_with_JWT.Controllers
       return Unauthorized();
     }
 
+    [Authorize]
+    [HttpGet]
+    public UserIdentity Get() => new UserIdentity(User.Claims);
+
     [HttpPost("validate-token")]
-    public ActionResult<UserModel> ValidateToken(ValidateTokenRequest validateTokenRequest)
+    public ActionResult<UserIdentity> ValidateToken(ValidateTokenRequest validateTokenRequest)
     {
       if (TokenAuthenticationFactory.TryValidateToken(validateTokenRequest.Token, out var claimsPrincipal))
       {
-        UserModel user = new UserModel(claimsPrincipal.Claims);
+        UserIdentity user = new UserIdentity(claimsPrincipal.Claims);
 
         return Ok(user);
       }
 
       return BadRequest();
-    }
-
-    [Authorize]
-    [HttpGet]
-    public UserModel Get()
-    {
-      UserModel user = new UserModel(User.Claims);
-
-      return user;
     }
   }
 }

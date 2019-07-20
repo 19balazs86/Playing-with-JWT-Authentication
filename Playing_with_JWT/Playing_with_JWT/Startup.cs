@@ -8,12 +8,9 @@ namespace Playing_with_JWT
 {
   public class Startup
   {
-    public Startup(IConfiguration configuration)
-    {
-      Configuration = configuration;
-    }
-
     public IConfiguration Configuration { get; }
+
+    public Startup(IConfiguration configuration) => Configuration = configuration;
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -33,9 +30,7 @@ namespace Playing_with_JWT
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
       if (env.IsDevelopment())
-      {
         app.UseDeveloperExceptionPage();
-      }
 
       app.UseAuthentication();
 
