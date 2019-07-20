@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Playing_with_JWT
 {
@@ -14,27 +14,24 @@ namespace Playing_with_JWT
 
     public void ConfigureServices(IServiceCollection services)
     {
-      //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-      services.AddMvcCore()
-        .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-        .AddApiExplorer()
-        .AddAuthorization()
-        //.AddDataAnnotations()
-        .AddJsonFormatters();
-        //.AddCors();
+      services.AddControllers();
 
       services.AddJwtAuthentication();
+
+      //services.AddAuthorization();
     }
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       if (env.IsDevelopment())
         app.UseDeveloperExceptionPage();
 
-      app.UseAuthentication();
+      app.UseRouting();
 
-      app.UseMvc();
+      app.UseAuthentication();
+      app.UseAuthorization();
+
+      app.UseEndpoints(endpoints => endpoints.MapControllers());
     }
   }
 }
