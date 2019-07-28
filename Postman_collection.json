@@ -10,10 +10,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:5000/User",
 					"protocol": "http",
@@ -23,6 +19,26 @@
 					"port": "5000",
 					"path": [
 						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCurrentAdmin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/User/Admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"User",
+						"Admin"
 					]
 				}
 			},
@@ -43,7 +59,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"test\",\"password\":\"pass\"}"
+					"raw": "{\"name\":\"test\",\"password\":\"pass\",\"role\":\"User\"}"
 				},
 				"url": {
 					"raw": "http://localhost:5000/User/Login",

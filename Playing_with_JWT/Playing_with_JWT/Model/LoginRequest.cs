@@ -9,5 +9,8 @@ namespace Playing_with_JWT.Model
 
     [Required]
     public string Password { get; set; }
+
+    [Required]
+    public string Role { get; set; }
   }
 }

@@ -13,7 +13,7 @@ namespace Playing_with_JWT.Controllers
     {
       if (loginModel.Name == "test" && loginModel.Password == "pass")
       {
-        UserIdentity user = new UserIdentity(1, loginModel.Name, new []{ "User" });
+        UserIdentity user = new UserIdentity(1, loginModel.Name, new []{ loginModel.Role });
 
         return Ok(new { Token = TokenAuthenticationFactory.CreateToken(user.ToClaims()) });
       }
@@ -24,6 +24,10 @@ namespace Playing_with_JWT.Controllers
     [Authorize]
     [HttpGet]
     public UserIdentity Get() => new UserIdentity(User.Claims);
+
+    [Authorize(Roles = "Admin")]
+    [HttpGet("admin")]
+    public UserIdentity GetAdmin() => new UserIdentity(User.Claims);
 
     [HttpPost("validate-token")]
     public ActionResult<UserIdentity> ValidateToken(ValidateTokenRequest validateTokenRequest)
