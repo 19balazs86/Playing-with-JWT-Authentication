@@ -32,6 +32,8 @@ namespace Playing_with_JWT
       ValidateLifetime         = true,
       ValidateIssuerSigningKey = true,
 
+      ClockSkew = TimeSpan.Zero,
+
       ValidIssuer      = _issuer,
       ValidAudience    = _audience,
       IssuerSigningKey = _securityKeyX509
