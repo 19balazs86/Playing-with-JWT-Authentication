@@ -8,6 +8,7 @@ namespace Playing_with_JWT.Controllers
   [ApiController]
   public class UserController : ControllerBase
   {
+    [AllowAnonymous]
     [HttpPost("login")]
     public IActionResult Login(LoginRequest loginModel)
     {
@@ -21,14 +22,15 @@ namespace Playing_with_JWT.Controllers
       return Unauthorized();
     }
 
-    [Authorize]
     [HttpGet]
     public UserIdentity Get() => new UserIdentity(User.Claims);
 
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")] // This can be used too.
+    [Authorize(Policy = "Admin")]
     [HttpGet("admin")]
     public UserIdentity GetAdmin() => new UserIdentity(User.Claims);
 
+    [AllowAnonymous]
     [HttpPost("validate-token")]
     public ActionResult<UserIdentity> ValidateToken(ValidateTokenRequest validateTokenRequest)
     {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,18 @@ namespace Playing_with_JWT
 
       services.AddJwtAuthentication();
 
-      //services.AddAuthorization();
+      services.AddAuthorization(options =>
+      {
+        // Add policy for admin role.
+        options.AddPolicy("Admin", new AuthorizationPolicyBuilder().RequireRole("Admin").Build());
+
+        // https://docs.microsoft.com/en-ie/aspnet/core/migration/22-to-30?view=aspnetcore-3.0&tabs=visual-studio#authorization
+        // FallbackPolicy is initially configured to allow requests without authorization.
+        // Override it to always require authentication on all endpoints except when [AllowAnonymous].
+        options.FallbackPolicy = new AuthorizationPolicyBuilder()
+          .RequireAuthenticatedUser()
+          .Build();
+      });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
