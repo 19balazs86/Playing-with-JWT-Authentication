@@ -18,11 +18,12 @@ This small application is an example to **set-up the built-in JWT authentication
 - GitHub: [Jwt.Net](https://github.com/jwt-dotnet/jwt) - Supports generating and decoding JSON Web Tokens.
 
 #### Resources
-- Blog: [Protect your API with API Keys](https://josefottosson.se/asp-net-core-protect-your-api-with-api-keys/) - custom Authentication and Authorization.
-- Blog: [Certificate Authentication](https://damienbod.com/2019/06/13/certificate-authentication-in-asp-net-core-3-0/).
-- Blog: [Creating a custom authentication scheme](https://joonasw.net/view/creating-auth-scheme-in-aspnet-core-2/).
-- GitHub: [aspnet-contrib / AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers)
-- Barry Dorrans: [Presentation](https://www.youtube.com/watch?v=dDroEVdAqKM) about Authentication and Authorization. [Source code](https://github.com/blowdart/AuthNAuthZPresentationDemos) for the demo.
+- [Signing JWT with RSA](https://vmsdurano.com/-net-core-3-1-signing-jwt-with-rsa/) *(ProudMonkey)*
+- [Protect your API with API Keys](https://josefottosson.se/asp-net-core-protect-your-api-with-api-keys/) *(Josef)*
+- [Certificate Authentication](https://damienbod.com/2019/06/13/certificate-authentication-in-asp-net-core-3-0/) *(Damien Bod)*
+- [Creating a custom authentication scheme](https://joonasw.net/view/creating-auth-scheme-in-aspnet-core-2/) (Joonas w)
+- [aspnet-contrib / AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) *(GitHub)*
+- [Presentation](https://www.youtube.com/watch?v=dDroEVdAqKM) about Authentication and Authorization. [Source code](https://github.com/blowdart/AuthNAuthZPresentationDemos) for the demo. *(Barry Dorrans)*
 
 ##### Password hashing
 - GitHub: [BcryptNet/bcrypt.net](https://github.com/BcryptNet/bcrypt.net)

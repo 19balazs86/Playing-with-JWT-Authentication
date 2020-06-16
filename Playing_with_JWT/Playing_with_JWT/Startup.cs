@@ -24,7 +24,8 @@ namespace Playing_with_JWT
         // Add policy for admin role.
         options.AddPolicy("Admin", new AuthorizationPolicyBuilder().RequireRole("Admin").Build());
 
-        // https://docs.microsoft.com/en-ie/aspnet/core/migration/22-to-30?view=aspnetcore-3.0&tabs=visual-studio#authorization
+        // -> https://andrewlock.net/setting-global-authorization-policies-using-the-defaultpolicy-and-the-fallbackpolicy-in-aspnet-core-3
+        // -> https://docs.microsoft.com/en-ie/aspnet/core/migration/22-to-30?view=aspnetcore-3.0&tabs=visual-studio#authorization
         // FallbackPolicy is initially configured to allow requests without authorization.
         // Override it to always require authentication on all endpoints except when [AllowAnonymous].
         options.FallbackPolicy = new AuthorizationPolicyBuilder()
