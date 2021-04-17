@@ -24,6 +24,7 @@ This small application is an example to **set-up the built-in JWT authentication
 - [Creating a custom authentication scheme](https://joonasw.net/view/creating-auth-scheme-in-aspnet-core-2/) (Joonas w)
 - [aspnet-contrib / AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) *(GitHub)*
 - [Presentation](https://www.youtube.com/watch?v=dDroEVdAqKM) about Authentication and Authorization. [Source code](https://github.com/blowdart/AuthNAuthZPresentationDemos) for the demo. *(Barry Dorrans)*
+- [Azure AD Authentication](https://www.faciletechnolab.com/blog/2021/4/13/how-to-implement-azure-ad-authentication-in-aspnet-core-50-web-application) *(Facile Technolab)*
 
 ##### Password hashing
 - GitHub: [BcryptNet/bcrypt.net](https://github.com/BcryptNet/bcrypt.net)
